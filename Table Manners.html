@@ -1,0 +1,197 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Table Manners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+  /* Layout: one flat color, black type, one centered column. Script oval badge, three lines of caps/sentence-case info, one sentence, then a plain waitlist form. Nothing else. */
+  :root {
+    --bg: #dfd96f;           /* butter lime */
+    --ink: #111110;
+    --soft: rgba(17,17,16,.68);
+    --error: #8f1a10;
+    --font-sans: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-script: "Yellowtail", "Snell Roundhand", cursive;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.4;
+    padding-inline: 20px;
+    padding-block: 56px 40px;
+  }
+  .wrap { max-width: 420px; margin-inline: auto; display: grid; gap: 40px; justify-items: center; text-align: center; }
+
+  h1 { margin: 0; line-height: 0; }
+  .badge { width: min(250px, 72vw); height: auto; transform: rotate(-4deg); display: block; overflow: visible; }
+  .badge ellipse { fill: none; stroke: var(--ink); stroke-width: 4; }
+  .badge text { font-family: var(--font-script); font-size: 48px; fill: var(--ink); }
+
+  .info { display: grid; gap: 0; font-size: clamp(20px, 6vw, 26px); line-height: 1.22; letter-spacing: -.01em; font-weight: 500; }
+  .info .caps { text-transform: uppercase; }
+  .about { margin: 0; max-width: 32ch; color: var(--soft); text-wrap: balance; }
+
+  .rule { width: 100%; height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+
+  .waitlist { width: 100%; display: grid; gap: 22px; text-align: left; }
+  .waitlist h2 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: 17px; font-weight: 500; }
+  .steps li { display: grid; grid-template-columns: 22px 1fr; }
+  .steps li::before { counter-increment: step; content: counter(step); font-variant-numeric: tabular-nums; color: var(--soft); }
+  .steps { counter-reset: step; }
+
+  form { display: grid; gap: 18px; }
+  .field { display: grid; gap: 2px; min-width: 0; }
+  label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  label .opt { font-weight: 400; color: var(--soft); letter-spacing: .04em; text-transform: none; }
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%; min-width: 0;
+    font: inherit; font-size: 17px; font-weight: 500; color: var(--ink);
+    background: transparent; border: 0; border-bottom: 1.5px solid var(--ink); border-radius: 0;
+    padding: 8px 0 7px;
+  }
+  select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 9px) 55%, calc(100% - 4px) 55%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 20px; }
+  input:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  input[aria-invalid="true"] { border-bottom-color: var(--error); }
+  .err { margin: 2px 0 0; color: var(--error); font-size: 13px; font-weight: 500; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 380px) { .row { grid-template-columns: 1fr; } }
+
+  button.join {
+    margin-top: 6px;
+    font: inherit; font-size: 17px; font-weight: 600;
+    background: var(--ink); color: var(--bg);
+    border: 0; border-radius: 999px; padding: 15px 20px; cursor: pointer;
+  }
+  button.join:hover { background: #2a2a26; }
+  button.join:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .fine { margin: 0; font-size: 13px; color: var(--soft); text-wrap: pretty; }
+
+  .done { display: grid; gap: 6px; padding-block: 8px; }
+  .done .big { margin: 0; font-size: clamp(24px, 7vw, 30px); line-height: 1.15; font-weight: 500; letter-spacing: -.01em; }
+  .done p { margin: 0; color: var(--soft); }
+
+  footer { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    button.join { transition: background .15s ease; }
+  }
+</style>
+
+<main class="wrap">
+  <h1>
+    <svg class="badge" viewBox="0 0 260 112" role="img" aria-label="Table Manners">
+      <ellipse cx="130" cy="56" rx="124" ry="48"/>
+      <text x="130" y="56" text-anchor="middle" dominant-baseline="central" textLength="200" lengthAdjust="spacingAndGlyphs">table manners</text>
+    </svg>
+  </h1>
+
+  <div class="info">
+    <span class="caps">Dinner club</span>
+    <span class="caps">Seated / Shared / Seconds</span>
+  </div>
+
+  <p class="about">A dinner club for people who like a full table and a long night. Small, seated, and a little loud.</p>
+
+  <hr class="rule">
+
+  <section class="waitlist" aria-label="Join the waitlist">
+    <h2>Waitlist</h2>
+    <ol class="steps">
+      <li>Add your name.</li>
+      <li>We write when a seat opens.</li>
+      <li>Come hungry.</li>
+    </ol>
+
+    <form id="waitlist-form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+        <p class="err" id="name-err" hidden>Enter your name.</p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        <p class="err" id="email-err" hidden>Enter a valid email address.</p>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="mobile">Mobile <span class="opt">(optional)</span></label>
+          <input id="mobile" name="mobile" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="party">Seats</label>
+          <select id="party" name="party">
+            <option>Just me</option>
+            <option>Me + 1</option>
+            <option>Me + 2</option>
+            <option>Me + 3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="diet">Allergies or diet <span class="opt">(optional)</span></label>
+        <input id="diet" name="diet" type="text">
+      </div>
+
+      <button class="join" type="submit">Join the waitlist</button>
+      <p class="fine">We only email about dinner.</p>
+    </form>
+  </section>
+
+  <footer>tablemanners.io</footer>
+</main>
+
+<script>
+  (function () {
+    var form = document.getElementById("waitlist-form");
+    var rules = {
+      name: function (v) { return v.trim().length >= 2; },
+      email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+    };
+
+    function check(id) {
+      var el = document.getElementById(id);
+      var ok = rules[id](el.value);
+      el.setAttribute("aria-invalid", ok ? "false" : "true");
+      document.getElementById(id + "-err").hidden = ok;
+      return ok;
+    }
+    Object.keys(rules).forEach(function (id) {
+      document.getElementById(id).addEventListener("blur", function () { check(id); });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var results = Object.keys(rules).map(check);
+      if (results.indexOf(false) !== -1) {
+        var bad = form.querySelector('[aria-invalid="true"]');
+        if (bad) bad.focus();
+        return;
+      }
+      var first = document.getElementById("name").value.trim().split(/\s+/)[0];
+      var box = document.createElement("div");
+      box.className = "done";
+      box.setAttribute("role", "status");
+
+      var big = document.createElement("p");
+      big.className = "big";
+      big.textContent = "You're on the list, " + first + ".";
+      var small = document.createElement("p");
+      small.textContent = "We'll write when a seat opens up.";
+
+      box.appendChild(big); box.appendChild(small);
+      form.replaceChildren(box);
+    });
+  })();
+</script>
+
+</body></html>
